@@ -1,0 +1,30 @@
+USE INFRACCIONES_DB;
+
+CREATE TABLE Marca (
+	IdMarca INT PRIMARY KEY,
+	Nombre VARCHAR(50) NOT NULL
+);
+
+CREATE TABLE Autos (
+	Patente VARCHAR(10) PRIMARY KEY,
+	IdMarca INT NOT NULL,
+	Modelo VARCHAR(50) NOT NULL,
+	Color VARCHAR(50) NOT NULL
+);
+
+CREATE TABLE Infraccion(
+	IdInfraccion INT PRIMARY KEY,
+	Patente VARCHAR(10) NOT NULL,
+	FechaInfraccion DATETIME NOT NULL,
+	Descripcion VARCHAR(50) NOT NULL
+);
+
+CREATE NONCLUSTERED INDEX NoMarca ON Marca(Nombre Asc);
+
+CREATE NONCLUSTERED INDEX NoAutos ON Autos(Modelo Asc);
+
+CREATE NONCLUSTERED INDEX NoInfraccion ON Infraccion(Descripcion Asc);
+
+
+
+
